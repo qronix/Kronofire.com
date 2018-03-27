@@ -1,0 +1,21 @@
+/*Colors:
+
+Main color: 8e44ad
+Almost black hue: 200f27
+Lighter: ac6fc6
+super light: d6b8e3
+Darker color: 522764
+*/
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    background-color: #200f27;
+    font-family: 'Abel', sans-serif;
+    text-rendering: optimizeLegibility;
+}
