@@ -18,4 +18,121 @@ html{
     background-color: #200f27;
     font-family: 'Abel', sans-serif;
     text-rendering: optimizeLegibility;
+    font-size: 20px;
+}
+
+/*****************************/
+/**********LandingPage*******/
+/*****************************/
+
+#heroPanel,
+#heroImg{
+
+    width: 50% !important;
+    height: 200px !important;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    margin-top: 40vh;
+    position: fixed;
+    transition: all 0.4ms;
+}
+
+#heroPanel:hover,
+#heroImg:hover{
+    height: 300px;
+}
+
+
+
+#heroPanel{
+
+    background-color: rgba(142,68,173,0.2) !important;
+    color: white !important;
+    z-index: 9999;
+    /*position: absolute !important;*/
+    border-radius: 5px;
+    /*box-shadow:1px 2px black;*/
+}
+
+#heroImg{
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url("/resources/img/heroImgSmall.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(0.8px);
+    z-index: 1;
+}
+
+#particles-js{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#heroPanel #heroText{
+    font-size: 400% !important;
+    letter-spacing: 20px;
+    padding-top: 50px;
+    display: block;
+    color: white;
+    text-align: center;
+    animation-name: kronoFireShadows;
+    animation-duration: 2s;
+    /*animation-iteration-count: infinite;*/
+    /*animation-direction: reverse;*/
+    text-shadow: 5px 2px 1px rgba(255,255,255,0.3);
+}
+
+@keyframes kronoFireShadows {
+    /*10%{*/
+        /*text-shadow: 5px 2px 2px rgba(255,255,255,0.3);*/
+    /*}*/
+    /*40%{*/
+        /*text-shadow: 5px 2px 3px rgba(255,255,255,0.3);*/
+    /*}*/
+    /*60%{*/
+        /*text-shadow: 5px 2px 4px rgba(255,255,255,0.3);*/
+    /*}*/
+    /*80%{*/
+        /*text-shadow: 5px 2px 3px rgba(255,255,255,0.3);*/
+    /*}*/
+    /*100%{*/
+        /*text-shadow: 5px 2px 2px rgba(255,255,255,0.3);*/
+        /*color: black;*/
+    /*}*/
+    from{
+        text-shadow: 5px 2px 2px rgba(255,255,255,0.3);
+        color: black;
+    }
+    to{
+        text-shadow: 5px 2px 1px rgba(255,255,255,0.3);
+        color: white;
+    }
+}
+
+#heroPanel #heroDescription{
+    text-align: center;
+}
+
+.descriptionPieceHidden{
+    display: none;
+}
+
+.descriptionPieceShown{
+    display: inline;
+    animation-name: pieceAnim;
+    animation-duration: 2s;
+    margin-right: 2px;
+}
+@keyframes pieceAnim {
+    from{
+        color:black;
+    }
+    to{
+        color: white;
+    }
 }

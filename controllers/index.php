@@ -1,3 +1,3 @@
 <?php
 
-echo "Index controller works";
+require ('views/index.view.php');
