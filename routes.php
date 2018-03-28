@@ -7,6 +7,6 @@ $routes = [
     'index'=> 'controllers/index.php',
     ''     => 'controllers/index.php',
     'about'=> 'controllers/about.php',
-    'test' => 'testArray.php'
+    'main' => 'controllers/main.php'
 ];
 $router->define($routes);

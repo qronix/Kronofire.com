@@ -17,6 +17,11 @@ include_once ('includes/header.php');
         <p id="heroText">Kronofire</p>
         <p id="heroDescription"></p>
 <!--        <img src="/resources/img/heroImgSmall.jpg" id="heroImg">-->
+        <div id="heroCTA">
+            <a href="#">Learn more</a>
+        </div>
+    </div>
+    <div id="content">
 
     </div>
     <div id="particles-js"></div>
@@ -24,10 +29,46 @@ include_once ('includes/header.php');
 
 <script src="/vendor/scripts/particles.js"></script>
 <script type="text/javascript">
-    particlesJS.load('particles-js','/vendor/scripts/particlesjs-config.json');
+     particlesJS.load('particles-js','/vendor/scripts/particlesjs-config.json');
 </script>
 
 <script type="text/javascript">
+
+    function setupButton(){
+        var ctaButton = document.getElementById("heroCTA");
+        var heroPanel = document.getElementById("heroPanel");
+        var heroImg = document.getElementById("heroImg");
+
+        ctaButton.addEventListener("click",async function(event){
+            heroPanel.classList.add("flyOut");
+            heroImg.classList.add("flyOut");
+            event.preventDefault();
+
+            await sleep(1000).then(function(){
+                heroPanel.classList.add("hidden");
+                heroImg.classList.add("hidden");
+            });
+
+            $.ajax({
+                url:"/main",
+                type:'post',
+                data:{'action':'load'},
+                success:function(data){
+                    if(data=="ok"){
+                        console.log("Good");
+                    }
+                },
+                error: function(xhr,desc,err){
+                    console.log(xhr);
+                    console.log("Details: " + desc + "\nError:" + err);
+                }
+            }).done(function(data){
+                console.log("Data:"+data);
+            });
+        });
+    }
+
+
     function buildDescription(){
         var missionStatement = "Modern software and web development";
         var missionStatementPieces= missionStatement.split('');
@@ -39,17 +80,16 @@ include_once ('includes/header.php');
         showDescription();
     }
 
-    function reveal(ms){
+    function sleep(ms){
         return new Promise(resolve=>setTimeout(resolve,ms));
     }
 
     function showDescription(){
         var pieces = document.querySelectorAll(".descriptionPieceHidden");
         var maxChanges = 1;
-        console.log("Max changes are:" + maxChanges);
 
         pieces.forEach( async function (piece) {
-             await reveal(5).then(function(){
+             await sleep(50).then(function(){
                 var currentChanges = 0;
                 piece.classList.remove("descriptionPieceHidden");
                 piece.classList.add("descriptionPieceShown");
@@ -66,11 +106,12 @@ include_once ('includes/header.php');
                             clearInterval(changer);
                         }
                     }.bind(piece)
-                    ,5);
+                    ,50);
             });
         });
     }
     window.onload = buildDescription();
+    setupButton();
 
 
 </script>

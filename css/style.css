@@ -29,22 +29,77 @@ html{
 #heroImg{
 
     width: 50% !important;
-    height: 200px !important;
+    /*height: 200px !important;*/
     margin-left: auto;
     margin-right: auto;
     left: 0;
     right: 0;
-    margin-top: 40vh;
+    margin-top: 35vh;
     position: fixed;
     transition: all 0.4ms;
+    user-select: none;
+    border-radius: 5px;
+    height: 300px;
 }
 
 #heroPanel:hover,
 #heroImg:hover{
-    height: 300px;
+    /*position: relative;*/
+    /*height: 300px;*/
 }
 
+#heroPanel p{
+    margin-bottom: 20px;
+}
 
+#heroCTA{
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    background: transparent;
+    border: 2px solid rgb(172,111,198);
+    width: 200px;
+    height: 50px;
+    padding-top: 10px;
+    letter-spacing: 3px;
+    filter:blur(1px);
+    transition: background-color 0.4s ease-in-out, filter 0.4s ease;
+}
+
+#heroCTA a{
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+}
+
+#heroCTA a:hover,
+#heroCTA a:active{
+    /*text-decoration: none;*/
+}
+
+.flyOut{
+    animation-name: flyOutAnim;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+.hidden{
+    display: none;
+}
+
+@keyframes flyOutAnim{
+    to{
+       transform: translate(0%,-500%);
+        /*position: fixed;*/
+    }
+}
+
+#heroCTA:hover,
+#heroCTA:active{
+    filter: none;
+    background-color: rgba(214,184,227,0.4);
+}
 
 #heroPanel{
 
@@ -52,7 +107,6 @@ html{
     color: white !important;
     z-index: 9999;
     /*position: absolute !important;*/
-    border-radius: 5px;
     /*box-shadow:1px 2px black;*/
 }
 
@@ -131,8 +185,13 @@ html{
 @keyframes pieceAnim {
     from{
         color:black;
+        filter: blur(20px);
     }
     to{
         color: white;
     }
+}
+
+.particles-js-canvas-el{
+    position: fixed;
 }
