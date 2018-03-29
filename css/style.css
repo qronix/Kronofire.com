@@ -195,3 +195,25 @@ html{
 .particles-js-canvas-el{
     position: fixed;
 }
+
+
+/*****************************/
+/**********MainPage*******/
+/*****************************/
+
+
+#testDiv{
+
+
+    width: 200px;
+    height: 200px;
+    background-color: #16a085;
+    margin: 0 auto;
+    margin-top: 30vh;
+
+
+
+
+}
+
+

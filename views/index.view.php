@@ -38,6 +38,7 @@ include_once ('includes/header.php');
         var ctaButton = document.getElementById("heroCTA");
         var heroPanel = document.getElementById("heroPanel");
         var heroImg = document.getElementById("heroImg");
+        var contentPanel = document.getElementById("content");
 
         ctaButton.addEventListener("click",async function(event){
             heroPanel.classList.add("flyOut");
@@ -54,9 +55,7 @@ include_once ('includes/header.php');
                 type:'post',
                 data:{'action':'load'},
                 success:function(data){
-                    if(data=="ok"){
-                        console.log("Good");
-                    }
+                    contentPanel.innerHTML = data;
                 },
                 error: function(xhr,desc,err){
                     console.log(xhr);
