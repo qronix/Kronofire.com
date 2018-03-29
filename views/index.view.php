@@ -21,7 +21,7 @@ include_once ('includes/header.php');
             <a href="#">Learn more</a>
         </div>
     </div>
-    <div id="content">
+    <div id="content" class="hidden">
 
     </div>
     <div id="particles-js"></div>
@@ -40,6 +40,7 @@ include_once ('includes/header.php');
         var heroImg = document.getElementById("heroImg");
         var contentPanel = document.getElementById("content");
 
+
         ctaButton.addEventListener("click",async function(event){
             heroPanel.classList.add("flyOut");
             heroImg.classList.add("flyOut");
@@ -56,13 +57,14 @@ include_once ('includes/header.php');
                 data:{'action':'load'},
                 success:function(data){
                     contentPanel.innerHTML = data;
+                    contentPanel.classList.remove("hidden");
+                    var particles = document.querySelector(".particles-js-canvas-el");
+                    particles.classList.add("blur_4px");
                 },
                 error: function(xhr,desc,err){
                     console.log(xhr);
                     console.log("Details: " + desc + "\nError:" + err);
                 }
-            }).done(function(data){
-                console.log("Data:"+data);
             });
         });
     }

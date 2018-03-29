@@ -10,7 +10,12 @@
 
 <!--Main body content will go here-->
 
+<div id="mainContent">
 
+
+
+
+</div>
 
 
 <?php
