@@ -2,3 +2,4 @@
 
 require 'views/main.view.php';
 
+?>

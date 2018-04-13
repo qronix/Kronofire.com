@@ -12,9 +12,9 @@
 
 <div id="mainContent">
 
-
-
-
+</div>
+<div class="container" id="siteStatus">
+    <p>This website is currently being redesigned</p>
 </div>
 
 
