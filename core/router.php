@@ -11,7 +11,9 @@ class Router{
     public function direct($uri){
         if(array_key_exists($uri,Router::$routerRoutes)){
             return Router::$routerRoutes[$uri];
+        }else{
+            return 'controllers/index.php';
         }
-        throw new \Exception('No route defined for this URI');
+//        throw new \Exception('No route defined for this URI');
     }
 }
